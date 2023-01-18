@@ -1,13 +1,13 @@
-import Habit from './components/Habit';
+import styles from './App.module.css';
+
+// import Habit from './components/Habit';
+import Header from './components/Header';
 
 function App() {
 	return (
-		<div className='App'>
-			<h2>Habits</h2>
-			<div className='flex justify-center gap-2 p-2'>
-				<Habit completed={3} />
-				<Habit completed={12} />
-				<Habit completed={14} />
+		<div className={styles.root}>
+			<div className={styles.container}>
+				<Header />
 			</div>
 		</div>
 	);
