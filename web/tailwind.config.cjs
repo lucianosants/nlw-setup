@@ -6,6 +6,9 @@ module.exports = {
 			colors: {
 				background: 'var(--background)',
 			},
+			gridTemplateRows: {
+				7: 'repeat(7, minmax(0, 1fr))',
+			},
 		},
 	},
 	plugins: [],
