@@ -21,7 +21,13 @@ export default function SummaryTable() {
 
 			<div className={styles.content__days}>
 				{summaryDates.map((date, i) => {
-					return <HabitDay key={date.toString()} />;
+					return (
+						<HabitDay
+							key={date.toString()}
+							amount={5}
+							completed={Math.round(Math.random() * 5)}
+						/>
+					);
 				})}
 
 				{amountOfDaysToFill > 0 &&

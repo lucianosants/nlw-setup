@@ -1,0 +1,7 @@
+.progressbar {
+	@apply h-3 rounded-xl bg-zinc-700 mt-4 w-full;
+}
+
+.progressbar__level {
+	@apply h-3 rounded-xl bg-violet-600;
+}
