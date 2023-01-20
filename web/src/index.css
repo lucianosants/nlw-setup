@@ -7,3 +7,29 @@
 		--background: #09090a;
 	}
 }
+
+@layer components {
+	.checkbox__wrapper {
+		@apply mt-6 flex flex-col gap-3;
+	}
+
+	.checkbox__root {
+		@apply flex items-center gap-3;
+	}
+
+	.checkbox__indicator {
+		@apply w-8 h-8 rounded-lg flex items-center justify-center border-2 bg-zinc-900 border-zinc-800;
+	}
+
+	.checkbox__icon {
+		@apply text-white;
+	}
+
+	.checkbox__label--form {
+		@apply text-white leading-tight;
+	}
+
+	.checkbox__label--habit {
+		@apply font-semibold text-xl text-white leading-tight;
+	}
+}

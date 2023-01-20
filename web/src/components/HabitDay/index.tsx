@@ -1,16 +1,28 @@
 import * as Popover from '@radix-ui/react-popover';
+import * as Checkbox from '@radix-ui/react-checkbox';
 import clsx from 'clsx';
 import ProgressBar from '../ProgressBar';
 
 import styles from './HabitDay.module.css';
+import { Check } from 'phosphor-react';
+import dayjs from 'dayjs';
 
 interface HabitProps {
-	completed: number;
-	amount: number;
+	date: Date;
+	completed?: number;
+	amount?: number;
 }
 
-export default function HabitDay({ completed, amount }: HabitProps) {
-	const completedPercentage = Math.round((completed / amount) * 100);
+export default function HabitDay({
+	date,
+	completed = 0,
+	amount = 0,
+}: HabitProps) {
+	const completedPercentage =
+		amount > 0 ? Math.round((completed / amount) * 100) : 0;
+
+	const dayAndMonth = dayjs(date).format('DD/MM');
+	const dayOfWeek = dayjs(date).format('dddd');
 
 	return (
 		<Popover.Root>
@@ -32,10 +44,27 @@ export default function HabitDay({ completed, amount }: HabitProps) {
 
 			<Popover.Portal>
 				<Popover.Content className={styles.popover__content}>
-					<span className={styles.title}>Segunda-feira</span>
-					<span className={styles.subtitle}>19/01</span>
+					<span className={styles.title}>{dayOfWeek}</span>
+					<span className={styles.subtitle}>{dayAndMonth}</span>
 
 					<ProgressBar progress={completedPercentage} />
+
+					<div className='checkbox__wrapper'>
+						<Checkbox.Root className='checkbox__root gap-3 group'>
+							<div className='checkbox__indicator group-data-[state=checked]:bg-green-500 group-data-[state=checked]:border-green-500'>
+								<Checkbox.CheckboxIndicator>
+									<Check
+										size={20}
+										className='checkbox__icon'
+										weight='bold'
+									/>
+								</Checkbox.CheckboxIndicator>
+							</div>
+							<span className='checkbox__label--habit group-data-[state=checked]:line-through group-data-[state=checked]:text-zinc-400'>
+								Beber 2L de água
+							</span>
+						</Checkbox.Root>
+					</div>
 
 					<Popover.Arrow
 						height={8}
