@@ -6,6 +6,10 @@ import {
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import colors from 'tailwindcss/colors';
+import Animated, {
+	FlipOutEasyY,
+	RotateInUpLeft,
+} from 'react-native-reanimated';
 
 interface Props extends TouchableOpacityProps {
 	title: string;
@@ -20,9 +24,13 @@ export function Checkbox({ title, checked = false, ...rest }: Props) {
 			{...rest}
 		>
 			{checked ? (
-				<View className='items-center justify-center w-8 h-8 bg-green-500 rounded-lg'>
+				<Animated.View
+					className='items-center justify-center w-8 h-8 bg-green-500 rounded-lg'
+					entering={RotateInUpLeft}
+					exiting={FlipOutEasyY}
+				>
 					<Feather name='check' size={28} color={colors.white} />
-				</View>
+				</Animated.View>
 			) : (
 				<View className='w-8 h-8 rounded-lg bg-zinc-900' />
 			)}
