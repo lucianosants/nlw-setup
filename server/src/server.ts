@@ -9,7 +9,7 @@ app.register(appRoutes);
 
 app.listen({
 	port: 3333,
-	host: '192.168.0.101',
+	host: '0.0.0.0', // change to you IP. example: 123.456.7.891
 }).then(() => {
 	console.log('HTTP Server running in 3333');
 });
