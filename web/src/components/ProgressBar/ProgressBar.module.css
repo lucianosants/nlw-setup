@@ -3,5 +3,5 @@
 }
 
 .progressbar__level {
-	@apply h-3 rounded-xl bg-violet-600;
+	@apply h-3 rounded-xl bg-violet-600 transition-all;
 }

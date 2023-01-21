@@ -18,7 +18,7 @@
 	}
 
 	.checkbox__indicator {
-		@apply w-8 h-8 rounded-lg flex items-center justify-center border-2 bg-zinc-900 border-zinc-800;
+		@apply w-8 h-8 rounded-lg flex items-center justify-center border-2 bg-zinc-900 border-zinc-800 transition-colors;
 	}
 
 	.checkbox__icon {
@@ -31,5 +31,9 @@
 
 	.checkbox__label--habit {
 		@apply font-semibold text-xl text-white leading-tight;
+	}
+
+	.focused:focus {
+		@apply outline-none ring-2 ring-violet-600 ring-offset-2 ring-offset-background;
 	}
 }

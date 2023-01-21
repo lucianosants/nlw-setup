@@ -15,7 +15,10 @@ export default function Header() {
 			<img src={logoImage} alt='Habits' />
 
 			<Dialog.Root open={open} onOpenChange={setOpen}>
-				<Dialog.Trigger type='button' className={styles.button}>
+				<Dialog.Trigger
+					type='button'
+					className={`${styles.button} focused`}
+				>
 					<Plus size={20} className={styles.button__icon} />
 					Novo hábito
 				</Dialog.Trigger>
@@ -23,7 +26,9 @@ export default function Header() {
 				<Dialog.Portal>
 					<Dialog.Overlay className={styles.overlay} />
 					<Dialog.Content className={styles.content}>
-						<Dialog.Close className={styles.btn__close}>
+						<Dialog.Close
+							className={`${styles.btn__close} focused focus:rounded-md`}
+						>
 							<X aria-label='Fechar' />
 						</Dialog.Close>
 						<Dialog.Title className={styles.title}>

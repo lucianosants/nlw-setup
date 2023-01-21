@@ -62,7 +62,7 @@ export default function NewHabitForm() {
 				value={title}
 				onChange={(e) => setTitle(e.target.value)}
 				autoFocus
-				className={styles.NewHabitForm__input}
+				className={`${styles.NewHabitForm__input} focused`}
 				autoComplete='off'
 			/>
 
@@ -73,11 +73,11 @@ export default function NewHabitForm() {
 			{availableWeekDays.map((weekDay, index) => (
 				<div key={weekDay} className='checkbox__wrapper'>
 					<Checkbox.Root
-						className='checkbox__root group'
+						className='checkbox__root group focus:outline-none disabled:cursor-not-allowed'
 						checked={WeekDays.includes(index)}
 						onCheckedChange={() => handleToggleWeekDay(index)}
 					>
-						<div className='checkbox__indicator group-data-[state=checked]:bg-green-500 group-data-[state=checked]:border-green-500'>
+						<div className='checkbox__indicator group-data-[state=checked]:bg-green-500 group-data-[state=checked]:border-green-500 group-focus:ring-2 group-focus:ring-violet-600 group-focus:ring-offset-2 group-focus:ring-offset-background'>
 							<Checkbox.CheckboxIndicator>
 								<Check
 									size={20}
@@ -93,7 +93,7 @@ export default function NewHabitForm() {
 
 			<button
 				type='submit'
-				className={`${styles.NewHabitForm__btn} bg-green-600`}
+				className={`${styles.NewHabitForm__btn} bg-green-600 focused`}
 			>
 				<Check size={20} weight='bold' />
 				Confirmar

@@ -1,5 +1,5 @@
 .days {
-	@apply w-10 h-10 border-2 rounded-lg cursor-pointer;
+	@apply w-10 h-10 border-2 rounded-lg cursor-pointer transition-colors;
 }
 
 .popover__content {
